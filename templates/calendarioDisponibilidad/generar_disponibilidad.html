@@ -1,0 +1,21 @@
+{% extends "landing/base_admin.html" %}
+
+{% block title %}Gestión de Disponibilidad{% endblock title %}
+{% block content %}
+
+<div class="row">
+<h1>Gestión de especialidades</h1>
+</div>
+
+<div class="row">
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+
+    <button type="submit">
+        Guardar
+    </button>
+    <a href="{% url 'lista_calendarioDisponibilidad' %}" >Cancelar</a>
+
+</form>
+{% endblock content %}

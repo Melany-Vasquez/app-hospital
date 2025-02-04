@@ -1,0 +1,47 @@
+{% extends "landing/base_admin.html" %}
+
+{% block title %}Gestión de Calendario de Disponibilidad{% endblock title %}
+
+{% block content %}
+<div class="col-10 offset-md-1">
+    <h1 class="mb-4">
+        {% if form.instance.pk %}Editar Disponibilidad{% else %}Crear Disponibilidad{% endif %}
+    </h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="id_medico" class="form-label">Médico</label>
+                {{ form.medico }}
+            </div>
+            <div class="col-md-6">
+                <label for="id_fecha_disponibilidad" class="form-label">Fecha de inicio</label>
+                {{ form.fecha_inicio}}
+            </div>
+            <div class="col-md-6">
+                <label for="id_fecha_disponibilidad" class="form-label">Fecha fin</label>
+                {{ form.fecha_fin}}
+            </div>
+        </div>
+
+        <!-- Mostrar errores si existen -->
+        {% if form.errors %}
+        <div class="alert alert-danger">
+            <ul>
+                {% for field, errors in form.errors.items %}
+                    <li>{{ field }}: {{ errors|striptags }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <button type="submit" class="btn btn-primary mt-3">
+            {% if form.instance.pk %}Actualizar{% else %}Guardar{% endif %}
+        </button>
+        <a href="{% url 'lista_calendarioDisponibilidad' %}" class="btn btn-secondary mt-3">Cancelar</a>
+    </form>
+</div>
+{% endblock content %}
+

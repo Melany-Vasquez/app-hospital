@@ -1,0 +1,42 @@
+{% extends "landing/base_admin.html" %}
+
+{% block title %}Lista de Paciente{% endblock title %}
+
+{% block content %}
+
+<div class="col-10 offset-md-1 row mb-4">
+    <a class="btn btn-success" style="background-color: #0D6EFD; color: white;" href="{% url 'crear_paciente' %}">Insertar<a/>
+</div>
+    
+    <div class="col-10 offset-md-1">
+    <table class="table table-border border-dark-subtle">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Cedula</th>
+                <th>fecha de nacimiento</th>
+                <th>dirección domicilio</th>
+                <th>teléfono</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for paciente in paciente %}
+            <tr>
+                <td>{{ paciente.nombre_completo }}</td>
+                <td>{{ paciente.cedula}}</td>
+                <td>{{ paciente.fecha_nacimiento }}</td>
+                <td>{{ paciente.direccion}}</td>
+                <td>{{ paciente.telefono}}</td>
+                <td>
+                    <a class="btn btn-warning" href="{% url 'editar_paciente' paciente.id %}"> Editar </a> 
+                    <a class="btn btn-danger" href="{% url 'eliminar_paciente' paciente.id %}"> Eliminar </a>
+
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div>
+{% endblock content %}

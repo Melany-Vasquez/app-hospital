@@ -1,0 +1,41 @@
+{% extends "paciente/base_paciente.html" %}
+
+{% block title %}Diagnósticos{% endblock title %}
+
+{% block content %}
+
+
+
+<div class="col-10 offset-md-1">
+    <table class="table table-bordered border-dark-subtle">
+        <thead>
+            <tr>
+                <th>Descripción</th>
+                <th>Fecha</th>
+                <th>Cita</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for diagnostico in diagnostico %}
+                <tr>
+                    <td>{{ diagnostico.descripcion_diagnostico }}</td>
+                    <td>{{ diagnostico.fecha_diagnostico }}</td>
+                    <td>{{ diagnostico.cita }}</td> <!-- Aquí puedes personalizar para mostrar la información de la cita relacionada -->
+                    <td>
+                        <a class="btn btn-warning" href="{% url 'editar_diagnostico' diagnostico.id %}">Editar</a>
+                        <a class="btn btn-danger" href="{% url 'eliminar_diagnostico' diagnostico.id %}">Eliminar</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4" class="text-center">No tienes diagnósticos registrados.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}
+
+

@@ -1,0 +1,32 @@
+{% extends "paciente/base_paciente.html" %}
+
+{% load static %}
+
+{% block title %}
+    Dashboard de Paciente
+{% endblock %}
+
+{% block content %}
+<div class="container" id="div_principal">
+
+    
+    <!-- Sección de bienvenida con el nombre del usuario -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="alert alert-info" role="alert">
+                <h4 class="alert-heading">¡Bienvenido, {{ username }}!</h4>
+                <p>Este es tu dashboard, aquí podrás ver las estadísticas del sistema y administrar tu perfil.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Imagen a ancho completo -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <img src="{% static 'images/banner3.png' %}" class="img-fluid w-100" style="height: auto;">
+        </div>
+    </div>
+    
+</div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "landing/base_admin.html" %}
+
+{% block title %}Lista de Medicos{% endblock title %}
+
+{% block content %}
+
+<div class="row">
+    <a class="btn btn-primary" href="{% url 'crear_medico' %}">Insertar<a/>
+</div>
+    
+    <div class="row">
+    <table class="tabla-medico">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>cedula</th>
+                <th>correo electronico</th>
+                <th>telefono</th>
+                <th>Dirección</th>
+                <th>especialidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for medico in medico %}
+            <tr>
+                <td>
+                    {% for especialidad in medico.especialidad.all %}
+                        {{ especialidad.nombre_especialidad }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
+                <td>{{ medico.nombre_completo}}</td>
+                <td>{{ medico.cedula}}</td>
+                <td>{{ medico.telefono }}</td>
+                <td>{{ medico.direccion }}</td>
+                <td>{{ medico.correo_electronico}}</td>
+                <td>
+                    <a class="btn btn-warning" href="{% url 'editar_medico' medico.id %}"> Editar </a> 
+                    <a class="btn btn-danger" href="{% url 'eliminar_medico' medico.id %}"> Eliminar </a>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div>
+{% endblock content %}

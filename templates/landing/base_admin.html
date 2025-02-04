@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body> 
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-dark text-white">
+                <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;height: 100vh !important">
+                    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <span class="fs-4 mt-4">Hospital Isidro Ayora</span>
+                    </a>
+                    <hr>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="{% url 'dashboard_admin' %}" class="nav-link active text-white" aria-current="page">
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'lista_medico' %}" class="nav-link text-white">
+                                Gestión Medicos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'lista_especialidades' %}" class="nav-link text-white">
+                                Gestión Especialidad
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'lista_paciente' %}" class="nav-link text-white">
+                                Gestión Pacientes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'lista_calendarioDisponibilidad' %}" class="nav-link text-white">
+                                Gestión Disponibilidad
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'lista_diagnostico' %}" class="nav-link text-white">
+                                Gestión Diagnostico
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'lista_receta' %}" class="nav-link text-white">
+                                Gestión Recetas
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'lista_cita' %}" class="nav-link text-white">
+                                Gestion Citas medicas
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'lista_historialMedico' %}" class="nav-link text-white">
+                                Gestion Historial medico
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="mb-3"> <!-- Clase para agregar un margen inferior (si es necesario) -->
+                        <form method="POST" action="{% url 'reporte_citas' %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary w-100">Descargar Reporte General</button>
+                        </form>
+                    </div>
+                    
+                </div>
+            </nav>
+            
+            <!-- Main Content -->
+            <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="margin-top: 15px;">
+                <div class="content">
+                    <!-- Mostrar información de sesión iniciada (alineado a la derecha) -->
+                    {% if request.user.is_authenticated %}
+                    <div class="row mb-4">
+                        <div class="row mb-4">
+                            <div class="d-flex justify-content-end align-items-center">
+                                <p class="mb-0 me-4">  <!-- Añade margen a la derecha del texto -->
+                                    <i class="bi bi-person-circle"></i>
+                                    <strong>Nombre:</strong> {{ request.user.username }}   
+                                </p>
+                                <form action="{% url 'cerrarsesion' %}" method="POST" style="display: inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+                                </form>
+                            </div>                            
+                        </div>                        
+                    </div>
+                    {% else %}
+                    <div class="row mb-4">
+                        <div class="col-md-12 text-end">
+                            <p>No has iniciado sesión.</p>
+                        </div>
+                    </div>
+                    {% endif %}
+            
+                    {% block content %}{% endblock %}
+                </div>
+            </main>
+            
+            
+        </div>
+    </div>
+</body>
+</html>
+
+{% block script %}{% endblock %}

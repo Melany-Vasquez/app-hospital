@@ -1,0 +1,16 @@
+{% extends "medico/base_medico.html" %}
+
+
+{% block title %}Gestión de citas{% endblock title %}
+{% block content %}
+        <div class="col-10 offset-md-1 row mb-4">
+                <h1>Eliminar diagnostico</h1>
+                <h3>¿Estás seguro que desea eliminar este diagnostico?</h3>
+
+                <form method="POST">
+                 {% csrf_token %}
+                 <button type="submit" class="btn btn-primary mt-5">Eliminar</button>
+                <a href="{% url 'lista_diagnostico' %}" class="btn btn-secondary mt-5" >Cancelar</a>
+                </form>
+        </div>
+{% endblock content %}                

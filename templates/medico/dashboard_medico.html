@@ -1,0 +1,106 @@
+
+{% extends "medico/base_medico.html" %}
+
+{% load static %}
+
+{% block title %}
+    Dashboard de Médicos
+{% endblock %}
+
+{% block content %}
+    <div class="col-10 offset-md-1" id="div_principal">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Estadísticas del Sistema - Total de Médicos</h2>
+                <canvas id="melany"></canvas>
+            </div>
+            <div class="col-md-6">
+                <h2>Estadísticas del Sistema - Pacientes COVID</h2>
+                <canvas id="pacientesCovid"></canvas>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-3"> <!-- Clase para agregar un margen inferior (si es necesario) -->
+                <form method="POST" action="{% url 'reporte_citas' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary w-100">Descargar Reporte General</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- se utiliza Chart.js desde una CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('melany').getContext('2d');
+        var melany = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Activos', 'Inactivos'],
+                datasets: [{
+                    label: 'Estado de Médicos',
+                    data: [{{ total_medicos_activos }}, {{ total_medicos_inactivos }}],  // Usamos los datos de la vista
+                    backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 99, 132, 0.2)'],
+                    borderColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 99, 132, 1)'],
+                    borderWidth: 1
+                }]
+            },
+        });
+
+
+
+        // Gráfico para el estado de los pacientes COVID
+        var ctxCovid = document.getElementById('pacientesCovid').getContext('2d');
+        var pacientesCovid = new Chart(ctxCovid, {
+            type: 'bar',
+            data: {
+                labels: ['Con COVID', 'Sin COVID'],
+                datasets: [{
+                    label: 'Estado de Pacientes COVID',
+                    data: [{{ total_pacientes_covid }}, {{ total_pacientes_no_covid }}],
+                    backgroundColor: ['rgba(255, 206, 86, 0.2)', 'rgba(54, 162, 235, 0.2)'],
+                    borderColor: ['rgba(255, 206, 86, 1)', 'rgba(54, 162, 235, 1)'],
+                    borderWidth: 1
+                }]
+            },
+        });
+
+        
+
+        
+    </script>
+
+    <div class="col-10 offset-md-1" id="div_principal" style="margin-top: 15px;">
+        <div class="row">
+            <!-- Card 1 -->
+            <div class="col-md-6">
+                <div class="card text-white bg-primary">
+                    <div class="card-body">
+                        <h5 class="card-title text-center text-white">Total de Pacientes</h5>
+                        <p class="card-text text-center">{{ contador_pacientes }}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-6">
+                <div class="card text-white bg-secondary">
+                    <div class="card-body">
+                        <h5 class="card-title text-center text-white">Nuevas Citas</h5>
+                        <p class="card-text text-center">{{ contador_citas }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-4" style="margin-top: 30px;">
+        <div class="col-12">
+            <img src="{% static 'images/banner6.png' %}" class="img-fluid w-100" style="height: auto;">
+        </div>
+    </div>
+    
+    
+
+    
+{% endblock %}

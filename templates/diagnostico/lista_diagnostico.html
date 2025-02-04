@@ -1,0 +1,46 @@
+
+{% extends "landing/base_admin.html" %}
+
+{% block title %}Diagnosticos{% endblock title %}
+
+{% block content %}
+
+<div class="col-10 offset-md-1 row mb-4">
+    <a class="btn btn-success" style="background-color: #0D6EFD; color: white;" href="{% url 'crear_diagnostico' %}">Insertar<a/>
+</div>
+    
+    <div class="col-10 offset-md-1">
+    <table class="table table-border border-dark-subtle">
+        <thead>
+            <tr>
+                <th>fecha</th>
+                <th>Diagnostico</th>
+                <th>cita</th>
+                <th>Opciones</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for diagnostico in diagnostico %}
+            
+            <tr>
+                <td>{{ diagnostico.fecha_diagnostico}}</td>
+                <td style="word-wrap: break-word; white-space: normal; max-width: 200px;">
+                    {{ diagnostico.descripcion_diagnostico }}
+                </td>
+                <td style="word-wrap: break-word; white-space: normal; max-width: 200px;">
+                    {{ diagnostico.cita }}
+                </td>
+                <td>
+                    <a class="btn btn-warning" href="{% url 'editar_diagnostico' diagnostico.id %}"> Editar </a> 
+                    <a class="btn btn-danger" href="{% url 'eliminar_diagnostico' diagnostico.id %}"> Eliminar </a>
+
+                </td>
+
+            </tr>
+            {% endfor %}
+        
+        </tbody>
+    </table>
+    <div>
+{% endblock content %}

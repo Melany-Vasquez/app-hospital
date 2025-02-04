@@ -1,0 +1,492 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<!DOCTYPE html>
+
+
+<html lang="es">
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>Hospital Isidro Ayora</title>
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Bootstrap App Landing Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  
+  
+  <!-- theme meta -->
+  <meta name="theme-name" content="hospital Isidro Ayora" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="{% static '../static/images/idp.png' %}" />
+
+  
+  <!-- PLUGINS CSS STYLE -->
+  <link rel="stylesheet" href="{% static '../static/plugins/bootstrap/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static '../static/plugins/themify-icons/themify-icons.css' %}">
+  <link rel="stylesheet" href="{% static '../static/plugins/slick/slick.css' %}">
+  <link rel="stylesheet" href="{% static '../static/plugins/slick/slick-theme.css' %}">
+  <link rel="stylesheet" href="{% static '../static/plugins/fancybox/jquery.fancybox.min.css' %}">
+  <link rel="stylesheet" href="{% static '../static/plugins/aos/aos.css' %}">
+  <!-- CUSTOM CSS -->
+
+  <link rel="stylesheet" href="{% static '../static/css/style.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+
+
+
+</head>
+
+<body class="body-wrapper" data-spy="scroll" data-target=".privacy-nav">
+
+
+<nav class="navbar main-nav navbar-expand-lg px-2 px-sm-0 py-2 py-lg-0">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><img src="../static/images/logo2.png" alt="logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="ti-menu"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown active">
+		
+			  <li class="nav-item">
+				<a class="nav-link" href="#">
+				  <i></i> Equipo medico
+				</a>
+			  </li>
+			  
+			  <li class="nav-item">
+				<a class="nav-link" href="#">
+				  <i></i> Especialidades
+				</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="#">
+				  <i></i> Contacto
+				</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="{% url 'crearcuenta' %}">
+				  <i class="bi bi-person-circle"></i> Iniciar sesión
+				</a>
+			  </li>
+			  
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!--====================================
+=            Hero Section            =
+=====================================-->
+
+<section class="section gradient-banner">
+	<div class="shapes-container">
+		<div class="shape" data-aos="fade-down-left" data-aos-duration="1500" data-aos-delay="100"></div>
+		<div class="shape" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100"></div>
+		<div class="shape" data-aos="fade-up-right" data-aos-duration="1000" data-aos-delay="200"></div>
+		<div class="shape" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"></div>
+		<div class="shape" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
+		<div class="shape" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
+		<div class="shape" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300"></div>
+		<div class="shape" data-aos="fade-down-right" data-aos-duration="500" data-aos-delay="200"></div>
+		<div class="shape" data-aos="fade-down-right" data-aos-duration="500" data-aos-delay="100"></div>
+		<div class="shape" data-aos="zoom-out" data-aos-duration="2000" data-aos-delay="500"></div>
+		<div class="shape" data-aos="fade-up-right" data-aos-duration="500" data-aos-delay="200"></div>
+		<div class="shape" data-aos="fade-down-left" data-aos-duration="500" data-aos-delay="100"></div>
+		<div class="shape" data-aos="fade-up" data-aos-duration="500" data-aos-delay="0"></div>
+		<div class="shape" data-aos="fade-down" data-aos-duration="500" data-aos-delay="0"></div>
+		<div class="shape" data-aos="fade-up-right" data-aos-duration="500" data-aos-delay="100"></div>
+		<div class="shape" data-aos="fade-down-left" data-aos-duration="500" data-aos-delay="0"></div>
+	</div>
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-md-6 order-2 order-md-1 text-center text-md-left">
+				<h1 class="text-white font-weight-bold mb-4" style="font-size: 3rem;">Hospital Isidro Ayora</h1>
+				<p class="text-white mb-5">El Hospital Isidro Ayora es un referente en atención médica de alta calidad, ofreciendo servicios especializados en diversas áreas de salud, respaldados por tecnología de última generación y un equipo médico comprometido con el bienestar de la comunidad.</p>
+				<a href="#" class="btn btn-main-md">Ver servicios médicos</a>
+			</div>
+			<div class="col-md-6 text-center order-1 order-md-2">
+				<img style="width: 900px; height: 500px;" src="../static/images/banner8.png" alt="screenshot">
+			</div>
+		</div>
+		
+	</div>
+</section>
+<!--====  End of Hero Section  ====-->
+
+<section class="section pt-0 position-relative pull-top">
+    <div class="container">
+        <div class="rounded shadow p-5 bg-white">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mt-5 mt-md-0 text-center">
+                    <i class="fas fa-clinic-medical text-primary h1"></i>
+                    <h3 class="mt-4 text-capitalize h5">Servicios Especializados</h3>
+                    <p class="regular text-muted">El Hospital Isidro Ayora ofrece una amplia gama de servicios especializados, desde pediatría hasta cirugía general, para garantizar una atención integral a nuestros pacientes.</p>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-5 mt-md-0 text-center">
+					<i class="fas fa-x-ray text-primary h1"></i>
+                    <h3 class="mt-4 text-capitalize h5">Tecnología Avanzada</h3>
+                    <p class="regular text-muted">Contamos con tecnología médica de última generación para brindar diagnósticos precisos y tratamientos efectivos, asegurando calidad y excelencia en cada procedimiento.</p>
+                </div>
+                <div class="col-lg-4 col-md-12 mt-5 mt-lg-0 text-center">
+                    <i class="fas fa-stethoscope text-primary h1"></i>
+                    <h3 class="mt-4 text-capitalize h5">Compromiso Humano</h3>
+                    <p class="regular text-muted">Nuestro equipo médico está altamente capacitado y comprometido con el bienestar de cada paciente, ofreciendo atención personalizada y de calidad en cada consulta.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--==================================
+=            Feature Grid            =
+===================================-->
+<section class="feature section pt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 ml-auto justify-content-center">
+                <!-- Feature Mockup -->
+                <div class="image-content" data-aos="fade-right">
+                    <img class="img-fluid" src="../static/images/ok.jpg" alt="Hospital">
+                </div>
+            </div>
+            <div class="col-lg-6 mr-auto align-self-center">
+                <div class="feature-content">
+                    <!-- Feature Title -->
+                    <h2>Mejora tu salud con los servicios del <a href="https://hospital-isidro-ayora.com/">Hospital Isidro Ayora</a></h2>
+                    <!-- Feature Description -->
+                    <p class="desc">En el Hospital Isidro Ayora, nos dedicamos a brindar atención médica integral y personalizada. Contamos con un equipo de expertos y tecnología avanzada para garantizar tu bienestar en cada etapa de tu tratamiento.</p>
+                </div>
+                <!-- Testimonial Quote -->
+                <div class="testimonial">
+                    <p>
+                        "El Hospital Isidro Ayora me ofreció la mejor atención médica que he recibido. Su compromiso con la salud y el cuidado de los pacientes es inigualable."
+                    </p>
+                    <ul class="list-inline meta">
+                        <li class="list-inline-item">
+                            <img src="../static/images/testimonial/feature-testimonial-thumb.jpg" alt="">
+                        </li>
+                        <li class="list-inline-item">María Fernández, Paciente Satisfecha</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="feature section pt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 ml-auto align-self-center">
+                <div class="feature-content">
+                    <!-- Feature Title -->
+                    <h2>Nuestro trabajo es cuidar de ti  <a href="https://hospital-isidro-ayora.com/">Hospital Isidro Ayora</a></h2>
+                    <!-- Feature Description -->
+                    <p>En el Hospital Isidro Ayora, contamos con una amplia gama de servicios médicos, incluyendo tecnología avanzada y un equipo altamente capacitado para brindarte la mejor atención médica posible.</p>
+                </div>
+                <!-- Testimonial Quote -->
+                <div class="testimonial">
+                    <p>
+                        "Gracias al Hospital Isidro Ayora, pude recibir la atención adecuada para mi salud. Su equipo profesional es excepcional."
+                    </p>
+                    <ul class="list-inline meta">
+                        <li class="list-inline-item">
+                            <img src="../static/images/testimonial/feature-testimonial-thumb.jpg" alt="">
+                        </li>
+                        <li class="list-inline-item">Ana Rodríguez, Paciente Recuperada</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6 mr-auto justify-content-center">
+                <!-- Feature mockup -->
+                <div class="image-content" data-aos="fade-left">
+                    <img class="img-fluid" src="../static/images/mmv.jpg" alt="Hospital">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--====  End of Feature Grid  ====-->
+<!--==============================
+=            Imagen Banner            =
+===============================-->
+<section class="banner-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 p-0">
+                <img src="../static/images/banner1.png" class="img-fluid w-100" alt="Banner" />
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!--==============================
+=            Services            =
+===============================-->
+<section class="service section bg-gray">
+	<div class="container-fluid p-0">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="section-title">
+					<h2>Servicios Médicos para tu Bienestar</h2>
+					<p><a href="https://hospital-isidro-ayora.com/">Hospital Isidro Ayora</a> se dedica a ofrecerte atención médica de calidad para mejorar tu estilo de vida. Sin largas esperas. Sin complicaciones.</p>
+				</div>
+			</div>
+		</div>
+		<div class="row no-gutters">
+			<div class="col-lg-6 align-self-center">
+				<!-- Imagen de servicio -->
+				<div class="service-thumb left" data-aos="fade-right">
+					<img class="img-fluid" src="../static/images/red.jpg" alt="hospital">
+				</div>
+			</div>
+			<div class="col-lg-5 mr-auto align-self-center">
+				<div class="service-box">
+					<div class="row align-items-center">
+						<div class="col-md-6 col-xs-12">
+							<!-- Servicio 01 -->
+							<div class="service-item">
+								<!-- Icono -->
+								<i class="ti-bookmark"></i>
+								<!-- Título -->
+								<h3>Atención Médica Personalizada</h3>
+								<!-- Descripción -->
+								<p>En el Hospital Isidro Ayora, nos aseguramos de que cada paciente reciba un tratamiento adecuado a sus necesidades.</p>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<!-- Servicio 02 -->
+							<div class="service-item">
+								<!-- Icono -->
+								<i class="ti-pulse"></i>
+								<!-- Título -->
+								<h3>Monitoreo de Salud</h3>
+								<!-- Descripción -->
+								<p>Contamos con tecnología avanzada para el monitoreo continuo de tus signos vitales, asegurando tu bienestar.</p>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<!-- Servicio 03 -->
+							<div class="service-item">
+								<!-- Icono -->
+								<i class="ti-bar-chart"></i>
+								<!-- Título -->
+								<h3>Planificación Médica</h3>
+								<!-- Descripción -->
+								<p>Te ayudamos a gestionar tus consultas médicas de forma eficiente para un mejor control de tu salud.</p>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<!-- Servicio 04 -->
+							<div class="service-item">
+								<!-- Icono -->
+								<i class="ti-panel"></i>
+								<!-- Título -->
+								<h3>Dirección Médica</h3>
+								<!-- Descripción -->
+								<p>Nuestros médicos expertos proporcionan una atención de calidad y guían a los pacientes en todo su tratamiento.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--====  End of Services  ====-->
+
+<!--=================================
+=            Testimonial            =
+==================================-->
+<section class="section testimonial" id="testimonial">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<!-- Testimonial Slider -->
+				<div class="testimonial-slider owl-carousel owl-theme">
+					<!-- Testimonial 01 -->
+					<div class="item">
+						<div class="block shadow">
+							<!-- Speech -->
+							<p>
+								"Gracias al Hospital Isidro Ayora, me recuperé rápidamente. El equipo médico fue muy profesional y atento en todo momento. Sin duda, el mejor servicio de salud."
+							</p>
+							<!-- Person Thumb -->
+							<div class="image">
+								<img src="../static/images/testimonial/feature-testimonial-thumb.jpg" alt="image">
+							</div>
+							<!-- Name and Company -->
+							<cite>María Pérez, Paciente</cite>
+						</div>
+					</div>
+					<!-- Testimonial 02 -->
+					<div class="item">
+						<div class="block shadow">
+							<!-- Speech -->
+							<p>
+								"Las instalaciones son muy modernas y limpias. Me sentí muy cómodo durante mi estancia, y el personal siempre estuvo disponible para ayudarme."
+							</p>
+							<!-- Person Thumb -->
+							<div class="image">
+								<img src="../static/images/testimonial/feature-testimonial-thumb.jpg" alt="image">
+							</div>
+							<!-- Name and Company -->
+							<cite>Carlos Gómez, Paciente</cite>
+						</div>
+					</div>
+					<!-- Testimonial 03 -->
+					<div class="item">
+						<div class="block shadow">
+							<!-- Speech -->
+							<p>
+								"El Hospital Isidro Ayora tiene un equipo increíble de médicos y enfermeras. Me cuidaron con mucha dedicación y me ayudaron a sentirme mejor rápidamente."
+							</p>
+							<!-- Person Thumb -->
+							<div class="image">
+								<img src="../static/images/testimonial/feature-testimonial-thumb.jpg" alt="image">
+							</div>
+							<!-- Name and Company -->
+							<cite>Juan Rodríguez, Paciente</cite>
+						</div>
+					</div>
+					<!-- Testimonial 04 -->
+					<div class="item">
+						<div class="block shadow">
+							<!-- Speech -->
+							<p>
+								"Gracias a los médicos del Hospital Isidro Ayora, pude superar un problema de salud grave. Me ofrecieron la mejor atención posible y me sentí muy respaldado."
+							</p>
+							<!-- Person Thumb -->
+							<div class="image">
+								<img src="../static/images/testimonial/feature-testimonial-thumb.jpg" alt="image">
+							</div>
+							<!-- Name and Company -->
+							<cite>Ana Sánchez, Paciente</cite>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--====  End of Testimonial  ====-->
+
+<section class="call-to-action-app section" style="background-color: #1D4FA8;">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h2>Es hora de cuidar tu salud</h2>
+				<p>Descarga la aplicación del Hospital Isidro Ayora. ¡Accede a servicios médicos en la palma de tu mano! 
+					<br>Te aseguramos que no te arrepentirás.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="banner-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 p-0">
+                <img src="../static/images/banner4.png" class="img-fluid w-100" alt="Banner" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--============================
+=            Footer            =
+=============================-->
+<footer>
+	<div class="footer-main" style="background-color: #ffffff;">
+	  <div class="container">
+		<div class="row">
+		  <div class="col-lg-4 col-md-12 m-md-auto align-self-center">
+			<div class="block">
+			  <a href="index.html"><img src="../static/images/deep.png" alt="footer-logo"></a>
+			  <!-- Social Site Icons -->
+			</div>
+		  </div>
+		  <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
+			<div class="block-2">
+			  <!-- heading -->
+			  <h6>Servicios</h6>
+			  <!-- links -->
+			  <ul>
+				<li><a href="#">Especialidades Medica</a></li>
+				<li><a href="#">Preguntas Frecuentes</a></li>
+				<li><a href="#">Agendar Cita</a></li>
+			  </ul>
+			</div>
+		  </div>
+		  <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
+			<div class="block-2">
+			  <!-- heading -->
+			  <h6>Recursos</h6>
+			  <!-- links -->
+			  <ul>
+				<li><a href="#">Registro</a></li>
+				<li><a href="#">Iniciar Sesión</a></li>
+				<li><a href="#">contactanos</a></li>
+			  </ul>
+			</div>
+		  </div>
+		  <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
+			<div class="block-2">
+			  <!-- heading -->
+			  <h6>Hospital</h6>
+			  <!-- links -->
+			  <ul>
+				<li><a href="#">Contacto</a></li>
+				<li><a href="#">Acerca de Nosotros</a></li>
+				<li><a href="#">Términos y Condiciones</a></li>
+			  </ul>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<div class="text-center bg-dark py-4">
+	  <small class="text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear())</script>. Diseñado y Desarrollado por <a href="#">Hospital Isidro Ayora</a></small>
+	</div>
+  </footer>
+  
+
+  <!-- To Top -->
+  <div class="scroll-top-to">
+    <i class="ti-angle-up"></i>
+  </div>
+  
+  <!-- JAVASCRIPTS -->
+
+<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/slick/slick.min.js' %}"></script>
+<script src="{% static 'plugins/fancybox/jquery.fancybox.min.js' %}"></script>
+<script src="{% static 'plugins/syotimer/jquery.syotimer.min.js' %}"></script>
+<script src="{% static 'plugins/aos/aos.js' %}"></script>
+<!-- Google Map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgeuuDfRlweIs7D6uo4wdIHVvJ0LonQ6g"></script>
+<script src="{% static 'plugins/google-map/gmap.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+ 
+</html>

@@ -1,0 +1,48 @@
+{% extends "landing/base_admin.html" %}
+{% block title %}Disponibilidad{% endblock title %}
+
+{% block content %}
+
+<div class="col-10 offset-md-1 row mb-4">
+    <a class="btn btn-success" style="background-color: #0D6EFD; color: white;" href="{% url 'crear_calendarioDisponibilidad' %}">Insertar</a>
+</div>
+
+<div class="col-10 offset-md-1 row mb-4">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<div class="col-10 offset-md-1">
+    {% if calendarioDisponibilidad %}
+        <table class="table table-border border-dark-subtle">
+            <thead>
+                <tr>
+                    <th>Médico</th>
+                    <th>Fecha de inicio</th>
+                    <th>Fecha fin</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in calendarioDisponibilidad %}
+                <tr>
+                    <td>{{ item.medico }}</td>
+                    <td>{{ item.fecha_inicio}}</td>
+                    <td>{{ item.fecha_fin}}</td>
+                    <td>
+                        <a class="btn btn-warning" href="{% url 'editar_calendarioDisponibilidad' item.id %}">Editar</a>
+                        <a class="btn btn-danger" href="{% url 'eliminar_calendarioDisponibilidad' item.id %}">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No hay disponibilidades registradas.</p>
+    {% endif %}
+</div>
+
+{% endblock content %}

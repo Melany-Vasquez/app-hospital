@@ -1,0 +1,9 @@
+{% extends "medico/base_medico.html" %}
+<h1>Eliminar la Historial medico</h1>
+<h3>¿Estás seguro que desea eliminar este Historial Médico? {{ historialMedico.nombre_historialMedico }}</h3>
+
+<form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a href="{% url 'lista_historialMedico' %}" >Cancelar</a>
+</form>

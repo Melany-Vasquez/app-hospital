@@ -1,0 +1,64 @@
+{% extends "landing/base_admin.html" %}
+
+{% block title %}Gestión de Médico{% endblock title %}
+
+{% block content %}
+<div class="container mt-6">
+    <div class="row mb-4">
+        <h1 class="text-center">Gestión de Médico</h1>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <form method="POST" class="needs-validation" novalidate>
+                {% csrf_token %}
+                
+                <!-- Renderizamos el formulario de Django con estilos -->
+                {{ form.as_p }}
+
+                <!-- Campos adicionales: Usuario y Password en la misma fila -->
+                <div class="row mb-3">
+                    <!-- Campo Usuario -->
+                    <div class="col-md-6">
+                        <label for="id_usuario" class="form-label">Usuario:</label>
+                        <input 
+                            type="text" 
+                            name="username" 
+                            maxlength="100" 
+                            required 
+                            id="id_usuario" 
+                            class="form-control" 
+                            placeholder="Ingrese el nombre de usuario"
+                        >
+                    </div>
+
+                    <!-- Campo Password -->
+                    <div class="col-md-6">
+                        <label for="id_password" class="form-label">Password:</label>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            maxlength="100" 
+                            required 
+                            id="id_password" 
+                            class="form-control" 
+                            placeholder="Ingrese la contraseña"
+                        >
+                    </div>
+                </div>
+    
+                <!-- Botones -->
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">
+                        Guardar
+                    </button>
+                    <a href="{% url 'lista_medico' %}" class="btn btn-secondary">
+                        Cancelar
+                    </a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

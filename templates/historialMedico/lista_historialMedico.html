@@ -1,0 +1,40 @@
+{% extends "landing/base_admin.html" %}
+
+{% block title %}Lista de historial Medico{% endblock title %}
+
+{% block content %}
+
+<div class="row">
+    <a class="btn btn-primary" style="background-color: #0D6EFD; color: white;" href="{% url 'crear_historialMedico' %}">Insertar</a>
+</div>
+    
+    <div class="row">
+    <table class="table-historialMedico">
+        <thead>
+            <tr>
+                <th>Nombre de paciente</th>
+                <th>Enfermedades previas</th>
+                <th>medico</th>
+                <th>Fecha actualización historial</th>
+                <th>Diagnosticos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for historialMedico in historialMedico %}
+            <tr>
+                <td>{{ historialMedico.paciente }}</td>
+                <td>{{ historialMedico.medico }}</td>
+                <td>{{ historialMedico.enfermedades_previas }}</td>
+                <td>{{ historialMedico.fecha_registro }}</td>
+                <td>{{ historialMedico.diagnostico }}</td>
+                <td>
+                    <a class="btn btn-warning" href="{% url 'editar_historialMedico' historialMedico.id %}"> Editar </a> 
+                    <a class="btn btn-danger" href="{% url 'eliminar_historialMedico' historialMedico.id %}"> Eliminar </a>
+
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div>
+{% endblock content %}

@@ -1,0 +1,68 @@
+{% extends "paciente/base_paciente.html" %}
+
+{% block title %}Gestión de Paciente{% endblock title %}
+
+{% block content %}
+<div class="col-10 offset-md-1">
+    <h1 class="mb-4">
+        {% if form.instance.pk %}Editar Paciente{% else %}Crear Paciente{% endif %}
+    </h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label for="id_nombre_completo" class="form-label">Nombre Completo</label>
+                {{ form.nombre_completo }}
+            </div>
+            <div class="col-md-4">
+                <label for="id_cedula" class="form-label">Cédula</label>
+                {{ form.cedula }}
+            </div>
+            <div class="col-md-4">
+                <label for="id_fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
+                {{ form.fecha_nacimiento }}
+            </div>
+        </div>
+        
+        <div class="row mb-1">
+            <div class="col-12 ">
+                <label for="id_direccion" class="form-label">Dirección</label>
+                {{ form.direccion }}
+            </div>
+        </div>
+        
+        <div>
+            <label for="id_usuario">Usuario:</label>
+            <input type="text" class="form-control mb-3" value="{{ user.username|default:'' }}" name="username" maxlength="100" required="" id="id_usuario">
+        </div>
+
+        <div>
+            <label for="id_correo_electronico">Correo electrónico:</label>
+            <input type="email" class="form-control mb-3" value="{{ user.email|default:'' }}" name="correo_electronico" maxlength="100" required="" id="id_usuario">
+        </div>
+
+        <div>
+            <label for="id_password">Password:</label>
+            <input type="text" class="form-control mb-3" name="password" maxlength="100" id="id_password">
+        </div>
+
+        <!-- Mostrar errores si existen -->
+        {% if form.errors %}
+        <div class="alert alert-danger">
+            <ul>
+                {% for field, errors in form.errors.items %}
+                    <li>{{ field }}: {{ errors|striptags }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <button type="submit" class="btn btn-primary mt-3">
+            {% if form.instance.pk %}Actualizar{% else %}Guardar{% endif %}
+        </button>
+        <a href="{% url 'dashboard_paciente' %}" class="btn btn-secondary mt-3">Cancelar</a>
+    </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,40 @@
+{% extends "landing/base_admin.html" %}
+
+{% block title %}Lista de Especialidades{% endblock title %}
+
+{% block content %}
+
+<div class="col-10 offset-md-1 row mb-4">
+    <a class="btn btn-success" style="background-color: #0D6EFD; color: white;" href="{% url 'crear_especialidades' %}">Insertar<a/>
+</div>
+    
+    <div class="col-10 offset-md-1">
+    <table class="table table-border border-dark-subtle">
+        <thead>
+            <tr>
+                <th>Nombre de especialidad</th>
+                <th>Descripción de especialidad</th>
+                <th>Fecha</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for e in especialidades %} 
+            <tr>
+                <td>{{ e.nombre_especialidad }}</td>
+                <td style="word-wrap: break-word; white-space: normal; max-width: 150px;">
+                    {{ e.descripcion_especialidad }}
+                </td>
+                <td>{{ e.fecha_registro }}</td>
+                <td>
+                    <a class="btn btn-warning" href="{% url 'editar_especialidades' e.id %}"> Editar </a> 
+                    <a class="btn btn-danger" href="{% url 'eliminar_especialidades' e.id %}"> Eliminar </a>
+
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div>
+{% endblock content %}

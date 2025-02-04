@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-dark text-white">
+                <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;height: 100vh !important">
+                    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <span class="fs-4">Hospital Isidro Ayora</span>
+                    </a>
+                    <hr>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="{% url 'dashboard_paciente' %}" class="nav-link active text-white" aria-current="page">
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'crear_citas_paciente' %}" class="nav-link text-white">
+                                Agendar nueva cita
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'lista_cita' %}" class="nav-link text-white">
+                                Mis citas 
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'lista_diagnostico' %}" class="nav-link text-white">
+                                Mis diagnósticos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'editar_paciente_usuario' request.session.id_paciente %}" class="nav-link text-white">Editar usuario</a>
+                        </li>                        
+                    </ul>
+                    <hr>
+                    <div class="text-center">
+                        <img src="/static/images/1800.png" alt="Hospital Isidro Ayora" class="img-fluid mb-2">
+                        <p class="fw-bold">
+                            <i class="bi bi-telephone me-2 "></i>Contáctanos: 1800 700 300
+                        </p>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Main Content -->
+            <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="margin-top: 15px;">              
+                
+                <div class="content">
+                    <!-- Mostrar información de sesión iniciada (alineado a la derecha) -->
+                    {% if request.user.is_authenticated %}
+                       <div class="row mb-4">
+                         <div class="col-md-12 d-flex align-items-center justify-content-end text-end">
+                            <div>
+                                <p class="m-0 p-0 mx-2"><i class="bi bi-person-circle"></i> <strong>Nombre:</strong> {{ request.user.username }} 
+                              </div>
+                            <div>
+                                <form action="{% url 'cerrarsesion' %}" method="POST" style="display: inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+                                </form>
+                            </div>
+                         </div>
+                        </div>
+                    {% else %}
+    <div class="row mb-4">
+    <div class="col-md-12 text-end">
+        <p>No has iniciado sesión.</p>
+    </div>
+    </div>
+    {% endif %}
+                    {% block content %}{% endblock %}
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
+
+{% block script %}{% endblock %}

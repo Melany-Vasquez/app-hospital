@@ -1,0 +1,51 @@
+{% extends "landing/base_admin.html" %}
+
+{% block title %}Formulario de Diagnóstico{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="title is-3 mb-4">Formulario de Diagnóstico</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        
+    
+
+        <!-- Fecha del Diagnóstico -->
+        <div class="field">
+            <label for="id_fecha_diagnostico" class="form-label">Fecha del Diagnóstico</label>
+            <div class="control">
+                <input type="date" name="fecha_diagnostico" id="id_fecha_diagnostico" class="input is-fullwidth" value="{{ form.fecha_diagnostico.value }}">
+            </div>
+        </div>
+        <div class="field">
+            <label for="id_cita" class="form-label">Cita</label>
+            <div class="control">
+                <div class="select is-fullwidth">
+                    {{ form.cita }}
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="id_descripcion_diagnostico" class="form-label">Descripción del Diagnóstico</label>
+            <textarea id="id_descripcion_diagnostico" name="descripcion_diagnostico" class="form-control" rows="3">
+            {{ form.descripcion_diagnostico.value|default_if_none:"" }}
+            </textarea>
+        </div>
+
+        <!-- Usuario (Entrada de texto) -->
+
+        <!-- Botones de acción -->
+        <div class="field is-grouped">
+            <div class="control">
+                <button type="submit" class="btn btn-primary mt-3">Guardar</button>
+            </div>
+            <div class="control">
+                <a href="{% url 'lista_diagnostico' %}" class="btn btn-secondary mt-3">Cancelar</a>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+

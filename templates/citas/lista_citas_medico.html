@@ -1,0 +1,42 @@
+{% extends "medico/base_medico.html" %}
+
+{% block title %}Citas medicas{% endblock title %}
+
+{% block content %}
+
+
+<div class="col-10 offset-md-1 row mb-4">
+    <a class="btn btn-success" style="background-color: #0D6EFD; color: white;" href="{% url 'crear_cita_medico' %}">Insertar</a>
+</div>
+    <div class="col-10 offset-md-1">
+    <table class="table table-border border-dark-subtle">
+        <thead>
+            <tr>
+                <th>Medico</th>
+                <th>Paciente</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Descripción</th>
+                <th>Opciones</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for citas in citas %}
+            <tr>
+                <td>{{ citas.medico }}</td>
+                <td>{{ citas.paciente}}</td>
+                <td>{{ citas.fecha_cita}}</td>
+                <td>{{ citas.hora_cita}}</td>
+                <td>{{ citas.descripcion}}</td>
+                <td>
+                    <a class="btn btn-warning" href="{% url 'editar_cita' citas.id %}"> Editar </a> 
+                    <a class="btn btn-danger" href="{% url 'eliminar_cita' citas.id %}"> Eliminar </a>
+
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div>
+{% endblock content %}

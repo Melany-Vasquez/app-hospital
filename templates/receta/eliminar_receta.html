@@ -1,0 +1,15 @@
+{% extends "medico/base_medico.html" %}
+
+{% block title %}eliminar receta{% endblock title %}
+{% block content %}
+        <div class="col-10 offset-md-1 row mb-4">
+                <h1>Eliminar receta medica</h1>
+                <h3>¿Estás seguro que desea eliminar esta receta? {{ receta.nombre_receta }}</h3>
+
+                <form method="POST">
+                 {% csrf_token %}
+                 <button type="submit" class="btn btn-primary mt-5">Eliminar</button>
+                 <a href="{% url 'lista_receta' %}" class="btn btn-secondary mt-5">Cancelar</a>
+                </form>
+        </div>
+{% endblock content %}        

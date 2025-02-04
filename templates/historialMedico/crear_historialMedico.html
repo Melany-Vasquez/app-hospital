@@ -1,0 +1,21 @@
+{% extends "landing/base_admin.html" %}
+
+{% block title %}Gestión de Historial Medico{% endblock title %}
+{% block content %}
+
+<div class="row">
+<h1>Gestión de Historial Medico</h1>
+</div>
+
+<div class="row">
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+
+    <button type="submit">
+        Guardar
+    </button>
+    <a href="{% url 'lista_historialMedico' %}" >Cancelar</a>
+
+</form>
+{% endblock content %}

@@ -1,0 +1,47 @@
+{% extends "landing/base_admin.html" %}
+
+{% block title %}Lista de Recetas{% endblock title %}
+
+{% block content %}
+
+<div class="col-10 offset-md-1 row mb-4">
+    <a class="btn btn-success" style="background-color: #0D6EFD; color: white;" href="{% url 'crear_receta' %}">Insertar<a/>
+</div>
+    
+    <div class="col-10 offset-md-1">
+    <table class="table table-border border-dark-subtle">
+        <thead>
+            <tr>
+                <th>Receta</th>
+                <th>Fecha de la receta</th>
+                <th>Medico</th>
+                <th>Paciente</th>
+                <th>Diagnostico del paciente</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recetas in receta %}
+            <tr>
+                <td style="word-wrap: break-word; white-space: normal; max-width: 150px;">
+                    {{ recetas.descripcion_receta }}
+                </td>
+                <td>{{ recetas.fecha_registro}}</td>
+                <td style="word-wrap: break-word; white-space: normal; max-width: 100px;">
+                    {{ recetas.medico }}
+                </td>
+                <td>{{ recetas.paciente}}</td>
+                <td style="word-wrap: break-word; white-space: normal; max-width: 100px;">
+                    {{ recetas.diagnostico}}
+                </td>
+                <td>
+                    <a class="btn btn-warning" href="{% url 'editar_receta' recetas.id %}"> Editar </a> 
+                    <a class="btn btn-danger" href="{% url 'eliminar_receta' recetas.id %}"> Eliminar </a>
+
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div>
+{% endblock content %}

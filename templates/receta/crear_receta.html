@@ -1,0 +1,56 @@
+{% extends "landing/base_admin.html" %}
+
+{% block title %}Registrar Receta{% endblock title %}
+
+{% block content %}
+<div class="col-10 offset-md-1">
+    <h1 class="mb-4">Registrar Receta Médica</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="id_fecha_registro" class="form-label">Fecha de Registro</label>
+                {{ form.fecha_registro }}
+            </div>
+            <div class="col-md-6">
+                <label for="id_diagnostico" class="form-label">Diagnóstico</label>
+                {{ form.diagnostico }}
+            </div>
+            
+        </div>
+        <div class="mb-3">
+            <label for="id_descripcion_receta" class="form-label">Descripción de la Receta</label>
+            {{ form.descripcion_receta }}
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="id_medicacion_nombre" class="form-label">Medicamento</label>
+                {{ form.medicacion_nombre }}
+            </div>
+            <div class="col-md-6">
+                <label for="id_medicacion_dosis" class="form-label">Dosis</label>
+                {{ form.medicacion_dosis }}
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="id_medicacion_frecuencia" class="form-label">Frecuencia</label>
+                {{ form.medicacion_frecuencia }}
+            </div>
+            <div class="col-md-6">
+                <label for="id_medicacion_duracion" class="form-label">Duración</label>
+                {{ form.medicacion_duracion }}
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Guardar</button>
+        <a href="{% url 'lista_receta' %}" class="btn btn-secondary mt-3">Cancelar</a>
+    </form>
+</div>
+{% endblock content %}
+
+
