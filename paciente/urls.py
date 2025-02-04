@@ -18,4 +18,5 @@ urlpatterns = [
     path("editar/paciente/<int:paciente_id>",  views.editar_paciente_usuario, name="editar_paciente_usuario"),
     
     
+    
 ]
