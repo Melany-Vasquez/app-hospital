@@ -33,3 +33,5 @@ urlpatterns = [
     path('inicio/', lambda request: redirect('/inicio/')),  # Mantén esta redirección solo si es necesaria
     path('', lambda request: redirect('/inicio')),  # Ruta para la raíz '/'
 ]
+
+
